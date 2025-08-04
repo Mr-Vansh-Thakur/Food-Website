@@ -222,6 +222,8 @@ h3{
 .order-card{
     flex: 1;
     flex-basis: 300px;
+    width:300px;
+    height: 500px;
     background: var(--pure-white);
     border: .1rem solid var(--golden-finger);
     padding: 0 1rem 2rem 1rem;
@@ -235,7 +237,7 @@ h3{
 }
 
 h4{
-    font-size: 1.8rem;
+    /* font-size: 1.8rem; */
     color: var(--lead);
 }
 .order-card .price{
@@ -244,6 +246,118 @@ h4{
     padding:1.3rem 0 2rem 0; 
 }
 
+/* CART TAB STYLING */
+.cart-tab{
+    background: var(--hint-yellow);
+    position: fixed;
+    inset: 0 -500px 0 auto;
+    width: 25rem;
+    padding-block: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 99;
+    box-shadow: rgba(0, 0, 0, 0.1) -10px -10px 20px ;
+    transition: .3s ease-in-out;
+}
+
+.cart-tab-active{
+    inset: 0 0 0 auto;
+}
+.cart-list{
+    flex: 1;
+    width: 100%;
+    margin-top: 1.5rem;
+    overflow: auto;
+}
+
+.cart-list::-webkit-scrollbar {
+    width: 0;
+}
+.total-container{
+    width: 100%;
+    background: var(--golden-finger);
+    text-align: center;
+    margin-block: 1rem;
+    padding-block: 1rem;
+}
+.total-container h4{
+    display: inline-block;
+    font-size: 1.3rem;
+    font-weight: 400;
+}
+
+.btn-container .btn{
+    background: var(--lead);
+    transition: .3s ease-in-out;
+}
+
+.btn-container .btn:hover{
+    background: var(--golden-finger);
+    color: var(--lead);
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.7rem 1rem;
+    transition: .3s ease-in-out;
+}
+
+.item.slide-out{
+    transform: translateX(50%);
+}
+
+.cart-list .item:nth-child(even){
+    background: var(--eye-ball);
+}
+
+.item .detail{
+    flex: 2;
+}
+
+.item-image img {
+    width: 3.2rem;
+    height: 3.2rem;
+    border-radius: 0.5rem;
+    object-fit: cover;
+}
+.item h4{
+    font-size: 1.3rem;
+    color: var(--lead);
+}
+
+.item .item-total{
+    font-weight: 400;
+    margin-top: .3rem;
+} 
+
+.quantity-btn{
+    width: 1.7rem;
+    height: 1.7rem;
+    font-size: 1rem;
+    line-height: 1.7rem;
+    border-radius: 50%;
+    background: var(--lead);
+    color: var(--pure-white);
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+.quantity-value{
+    font-size: 1rem;
+    min-width: 1.2rem;
+    text-align: center;
+}
+
+.quantity-input {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
 /* SECTION 03 */
 
 .review-container{
@@ -298,6 +412,7 @@ h4{
 }
 
 /* section 05 */
+
 .input-container{
     width: 43rem;
     max-width: 100%;
@@ -306,11 +421,16 @@ h4{
     box-shadow: rgba(0, 0, 0, 0.1) 0 5px 8px;
     border-radius: 1rem;
     margin: 4rem auto 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 }
+
 
 input[type="email"]{
     flex: 1;
-    height: 7vh;
+    min-width: 0;
+    height: 3.2rem;
     background: transparent;
     border: none;
     font-size: 1.1rem;
@@ -331,18 +451,21 @@ input[type="email"]:focus{
 
 .footer-container .flex{
     align-items: flex-start;
+    gap: 6rem;
 }
 
 .footer-wrapper{
     flex: 1;
+    flex-basis: 150px;
 }
 
 .footer-wrapper:nth-child(1){
     flex: 2;
+    flex-basis: 300px;
 }
 
 .footer-wrapper .social-icon{
-    background:var(--pure-white) ;
+    background:var(--pure-white);
 }
 
 .footer-wrapper .social-icon:hover{
@@ -351,18 +474,47 @@ input[type="email"]:focus{
 }
 
 .footer-link{
-    color: grey;
+    color: gray;
     font-size: 1.1rem;
     transition: .3s ease-in-out;
 }
 
-.footer-link :hover{
+.footer-link:hover{
     color: var(--lead);
+    /* transition: .3s ease-in-out; */
 }
 
 
+.item-details h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.1rem;
+}
+.item-details .item-total {
+    font-size: 0.95rem;
+    color: #222;
+    font-weight: 400;
+}
+
 /* MEDIA QUERRY */
 @media screen and (max-width:780px) {
+    .input-container {
+        flex-direction: row;
+        width: 100%;
+        min-width: 0;
+        gap: 1rem;
+        padding: .5rem;
+    }
+    input[type="email"] {
+        font-size: 1rem;
+        height: 2.7rem;
+        padding-left: .7rem;
+    }
+    .input-container .btn {
+        font-size: 1rem;
+        padding: .7rem 1.5rem;
+        border-radius: 1.5rem;
+    }
     /* HEADER STYLYING */
     .navlist,
     .desktop-action .btn-login {
@@ -406,6 +558,9 @@ input[type="email"]:focus{
     .content{
         padding-top: 3rem;
     }
+    .gap{
+        gap:20px;
+    }
     .gap-2{
       gap: 1.4rem;  
     }
@@ -427,4 +582,8 @@ input[type="email"]:focus{
         font-size: 3.5rem;
 
     }
+}
+
+.item-center{
+    justify-content: center;
 }
