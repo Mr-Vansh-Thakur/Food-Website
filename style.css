@@ -587,3 +587,8 @@ input[type="email"]:focus{
 .item-center{
     justify-content: center;
 }
+
+.social-media-icon{
+    display: flex;
+    gap: 1.5rem;
+}
