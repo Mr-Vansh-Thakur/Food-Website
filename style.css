@@ -517,7 +517,7 @@ input[type="email"]:focus{
     }
     /* HEADER STYLYING */
     .navlist,
-    .desktop-action .btn-login {
+    .desktop-action .btn{
         display: none;
     }
 
@@ -544,7 +544,7 @@ input[type="email"]:focus{
         rgba(0, 0, 0, 0.05) -8px -8px 8px inset;
         transition: all .5s ease-in-out;
     }
-    .mobile-menu.active{
+    .mobile-menu-active{
         left: 50%;
         transform: translateX(-50%);
     }
